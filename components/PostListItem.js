@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {useRouter} from "next/router";
 import {useEvent, useStore} from "effector-react";
-import {deletePost, partEditPost} from "../utils/utils";
+import {deletePost, partEditPost} from "../pages/utils/utils";
 
 const PostListItemItem = ({data}) => {
     const router = useRouter();
@@ -21,9 +21,20 @@ const PostListItemItem = ({data}) => {
             id: data.id,
         })
     }
+    const editHandler = () => {
+        router.push({
+            pathname: '/[pid]',
+            query: {
+                pid: data.id,
+                title: data.title,
+                body: data.body
+            }
+        })
+    }
 
-    return <li>
+    return <li className={"flex space-x-4 place-content-center"}>
         <input
+            className={"basis-2/3 border border-solid rounded bg-teal-100"}
             disabled={pendingPatch}
             type="text"
             id="title"
@@ -34,19 +45,13 @@ const PostListItemItem = ({data}) => {
             onBlur={() => patchHandler()}
             onChange={(e) => setValue(e.target.value)}
         />
-        <button onClick={() => {
-            console.log(data);
-            router.push({
-                pathname: '/[pid]',
-                query: {
-                    pid: data.id,
-                    title: data.title,
-                    body: data.body
-                }
-            })
-        }}>Edit
-        </button>
-        <button onClick={deletePostHandler}>Delete</button>
+        <div className={"basis-1/12 flex flex-row justify-between ..."}>
+            <button onClick={() => {
+                editHandler()
+            }} className={'bg-pink-300  rounded'} >Edit
+            </button>
+            <button onClick={deletePostHandler} className={'bg-gray-300  rounded'}>Delete</button>
+        </div>
     </li>
 }
 
