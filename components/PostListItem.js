@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {useRouter} from "next/router";
 import {useEvent, useStore} from "effector-react";
-import {deletePost, partEditPost} from "../pages/utils/utils";
+import {deletePost, partEditPost} from "../utils/utils";
 
 const PostListItemItem = ({data}) => {
     const router = useRouter();

@@ -1,6 +1,6 @@
 import {useRouter} from 'next/router'
 import {useState} from "react";
-import {createPost, editPost} from "./utils/utils";
+import {createPost, editPost} from "../utils/utils";
 import {useEvent, useStore} from "effector-react";
 
 const DetailPage = () => {

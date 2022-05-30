@@ -1,6 +1,6 @@
 import PostListItem from "./PostListItem";
 import {useStore} from "effector-react";
-import {$posts} from "../pages/utils/utils";
+import {$posts} from "../utils/utils";
 
 const PostList = () => {
     const posts = useStore($posts)

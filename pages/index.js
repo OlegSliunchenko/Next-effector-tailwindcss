@@ -1,6 +1,6 @@
 import {useEvent, useStore} from 'effector-react';
 import PostList from "../components/PostList";
-import {fetchPosts, url} from "./utils/utils";
+import {fetchPosts, url} from "../utils/utils";
 import {useRouter} from "next/router";
 
 const App = () => {
